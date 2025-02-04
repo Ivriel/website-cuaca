@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="listdesa.css">
+    <title>List Desa Kecamatan Belimbing</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(238, 238, 238);
+            margin: 50px 50px;
+        }
+        .box {
+            border: 1px solid rgba(144, 142, 142, 0.749);
+            width: 250px;
+            text-align: center;
+            padding: 15px 0;
+            transition: 0.2s ease-out;
+            background-color: rgba(91, 90, 90, 0.751);
+            color: white;
+            border-radius: 5px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 60px 10px;
+            gap: 50px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 30px;
+        }
+        p {
+            text-align: center;
+        }
+        .bungkus {
+            background-color: white;
+            padding: 50px 0;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(78, 77, 77, 0.1);
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        .box:hover {
+            transform: translateY(-10px);
+            cursor: pointer;
+            transition: 0.2s ease-in;
+            border: none;
+            width: 150px;
+            box-shadow: 0px 1px 14px 5px rgba(125, 125, 125, 0.75);
+        }
+    </style>
+</head>
+<body>
+<div class="bungkus">
+    <h1>List Desa </h1>
+    <p>Kecamatan Belimbing</p>
+  <div class="container">
+    <div class="box">
+        <a href="detailbalearjosari.html">Balearjosari</a>
+    </div>
+    <div class="box">
+        <a href="detailarjosari.html">Arjosari</a>
+    </div>
+    <div class="box">
+        <a href="detailpolowijen.html">Polowijen</a>
+    </div>
+  </div>
+</div> 
+</body>
+</html>

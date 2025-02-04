@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+#container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #0077b6;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    color: #555;
+    margin: 8px 0;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-top: 10px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+button {
+    background-color: blue;
+            border: none;
+            padding: 9px 14px;
+            border-radius: 3px;
+}
+button a {
+    color: white;
+    text-decoration: none;
+}
+    </style>
+    <title>Cuaca Hari Ini di Arjosari</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Cuaca Arjosari</h1>
+        <b>Hari Ini</b>
+        <hr>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>$(document).ready(function(){
+        const tampil = document.getElementById("container")
+        $.ajax({
+            url: 'https://api.bmkg.go.id/publik/prakiraan-cuaca?adm4=35.73.01.1002',
+            type: 'GET',
+            success: function(res){
+                res.data[0].cuaca[2].forEach(cuaca => {
+                    tampil.innerHTML += `
+                    <p><b>Waktu: </b> ${cuaca.local_datetime}</p>
+                    <p><b>Suhu: </b>${cuaca.t} °C</p>
+                    <p><b>Cuaca: </b>${cuaca.weather_desc}</p>
+                    <p><b>Kelembapan: </b>${cuaca.hu}%</p>
+                    <p><b>Kecepatan angin: </b>${cuaca.ws} m/s</p>
+                    <img src="${cuaca.image}"/>
+                    <hr>
+                    `;
+                });
+                tampil.innerHTML += `
+                <button><a href="cuacaarjosari.html">Kembali</a></button>
+                `
+            } 
+        });
+    });
+    </script>
+
+</body>
+</html>
